@@ -55,6 +55,9 @@
       &:hover {
         background: var(--secondary);
         color: var(--primary);
+        .d-icon {
+          color: var(--primary);
+        }
       }
     }
     .mobile-view & {
