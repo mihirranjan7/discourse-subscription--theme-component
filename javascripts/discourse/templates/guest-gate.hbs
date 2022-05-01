@@ -34,8 +34,7 @@
 
 <div class="modal-footer">
   {{#if ssoEnabled}}
-    {{d-button label=(theme-prefix 'guest_gate.log_in') action="showLogin"}}
-      &nbsp;&nbsp;or&nbsp;
+    {{d-button label=(theme-prefix 'guest_gate.log_in') action="showLogin"}} {{theme-i18n "guest_gate.or"}}
     {{d-button label=(theme-prefix 'guest_gate.sign_up') action="showCreateAccount"}}
     {{else}}
     {{#if (theme-setting 'use_gate_buttons') }}
