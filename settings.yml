@@ -13,6 +13,18 @@ use_gate_buttons:
   type: bool
   default: false
   description: Use buttons on modal footer instead of links.
+login_button_style:
+  type: enum
+  default: btn-primary
+  choices:
+    - btn-default
+  description: Change Login button style.
+signup_button_style:
+  type: enum
+  default: btn-default
+  choices:
+    - btn-primary
+  description: Change Signup button style.
 redirect_to_home:
   type: bool
   default: false

@@ -34,16 +34,16 @@
 
 <div class="modal-footer">
   {{#if ssoEnabled}}
-    {{d-button label=(theme-prefix 'guest_gate.log_in') action="showLogin"}} {{theme-i18n "guest_gate.or"}}
-    {{d-button label=(theme-prefix 'guest_gate.sign_up') action="showCreateAccount"}}
+    {{d-button class=(theme-setting 'login_button_style') label=(theme-prefix 'guest_gate.log_in') action="showLogin"}} {{theme-i18n "guest_gate.or"}}
+    {{d-button class=(theme-setting 'signup_button_style') label=(theme-prefix 'guest_gate.sign_up') action="showCreateAccount"}}
     {{else}}
     {{#if (theme-setting 'use_gate_buttons') }}
       {{#if (theme-setting 'redirect_to_home') }}
-        {{d-button class="btn-primary" label=(theme-prefix 'guest_gate.log_in') href="/login"}}
-        {{d-button label=(theme-prefix 'guest_gate.sign_up') href="/signup"}}
+        {{d-button class=(theme-setting 'login_button_style') label=(theme-prefix 'guest_gate.log_in') href="/login"}}
+        {{d-button class=(theme-setting 'signup_button_style') label=(theme-prefix 'guest_gate.sign_up') href="/signup"}}
         {{else}}
-        {{d-button class="btn-primary" label=(theme-prefix 'guest_gate.log_in') action="showLogin"}}
-        {{d-button label=(theme-prefix 'guest_gate.sign_up') action="showCreateAccount"}}
+        {{d-button class=(theme-setting 'login_button_style') label=(theme-prefix 'guest_gate.log_in') action="showLogin"}}
+        {{d-button class=(theme-setting 'signup_button_style') label=(theme-prefix 'guest_gate.sign_up') action="showCreateAccount"}}
       {{/if}}
       {{else}}
       {{#if (theme-setting 'redirect_to_home') }}
