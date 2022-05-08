@@ -11,50 +11,46 @@ export default {
 
   initialize(container) {
     withPluginApi("0.8.31", api => {
-      if(settings.guest_gate_enabled) {
-        if (!api.getCurrentUser()) {
-          var pageView = 0;
-          // Tell our AJAX system to track a page transition
-          const router = container.lookup('router:main');
-          router.on('willTransition', viewTrackingRequired);
+      if (!api.getCurrentUser()) {
+        var pageView = 0;
+        // Tell our AJAX system to track a page transition
+        const router = container.lookup('router:main');
+        router.on('willTransition', viewTrackingRequired);
 
-          let appEvents = container.lookup('service:app-events');
-          startPageTracking(router, appEvents);
-          var gateShownOnce = false;
+        let appEvents = container.lookup('service:app-events');
+        startPageTracking(router, appEvents);
+        var gateShownOnce = false;
           
 
-          appEvents.on('page:changed', data => {
+        appEvents.on('page:changed', data => {
 
-            var urlPrefix = "/t/";
+          var urlPrefix = "/t/";
 
-            var pattern = new RegExp('^' + urlPrefix);
-            var hasPrefix = pattern.test(data.url);
-            if(hasPrefix) {
-              var isBot = false;
-              var re = new RegExp(botPattern, 'i');
-              if (re.test(navigator.userAgent)) {
-                isBot = true;
-              }
-              var maxViews = parseInt(settings.max_guest_topic_views);
-              pageView++;
-              var hitMaxViews = pageView >= maxViews;
-              var showGateBool = hitMaxViews && !isBot && !gateShownOnce && !api.getCurrentUser();
-              if (showGateBool) {
-                if (settings.gate_show_only_once) {
-                  gateShownOnce = true;
-                }
-                pageView = getRandomInt(0, maxViews + 1);
-                showGate('guest-gate');
-              }
+          var pattern = new RegExp('^' + urlPrefix);
+          var hasPrefix = pattern.test(data.url);
+          if(hasPrefix) {
+            var isBot = false;
+            var re = new RegExp(botPattern, 'i');
+            if (re.test(navigator.userAgent)) {
+              isBot = true;
             }
-          });
-        }
+            var maxViews = parseInt(settings.max_guest_topic_views);
+            pageView++;     
+            var hitMaxViews = pageView >= maxViews;
+            var showGateBool = hitMaxViews && !isBot && !gateShownOnce && !api.getCurrentUser();
+            if (showGateBool) {
+              if (settings.gate_show_only_once) {
+                gateShownOnce = true;
+              }
+              pageView = getRandomInt(0, maxViews + 1);
+              showGate('guest-gate');
+            }          
+          }
+        });
       }
     });
   }
 };
-
-
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
