@@ -18,13 +18,13 @@ login_button_style:
   default: btn-primary
   choices:
     - btn-default
-  description: Change Login button style.
+  description: Guest Gate Login button style. btn-primary is a blue (tertiary) colored button by default. btn-default is a grey (primary-low) colored button by default.
 signup_button_style:
   type: enum
   default: btn-default
   choices:
     - btn-primary
-  description: Change Signup button style.
+  description: Guest Gate Signup button style. btn-primary is a blue (tertiary) colored button by default. btn-default is a grey (primary-low) colored button by default.
 redirect_to_home:
   type: bool
   default: false
