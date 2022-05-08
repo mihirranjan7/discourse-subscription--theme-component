@@ -1,6 +1,3 @@
-guest_gate_enabled:
-  type: bool
-  default: true
 max_guest_topic_views:
   type: string
   default: "1"
