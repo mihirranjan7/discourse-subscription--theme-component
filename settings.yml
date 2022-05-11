@@ -22,22 +22,18 @@ signup_button_style:
   choices:
     - btn-primary
   description: Guest Gate Signup button style. btn-primary is a blue (tertiary) colored button by default. btn-default is a grey (primary-low) colored button by default.
-redirect_to_home:
-  type: bool
-  default: false
-  description: Redirect the visitor after click the Login or Signup button to the homepage and open Login or Signup modal.
 custom_url_enabled:
   type: bool
   default: false
-  description: Enable custom url for Guest Gate Login and Sing Up button / link.
+  description: Enable custom url for Guest Gate Login and Sing Up button / link. By default this is redirect the visitor after click the Guest Gate Login or Signup button to the homepage and open Login or Signup modal
 custom_login_url:
   type: string
   default: "/login"
-  description: Add custom url to Guest Gate Login button / link. By default it is redirect to home page and open login modal.
+  description: Add custom url to Guest Gate Login button / link. By default (/login) this is redirect to home page and open login modal.
 custom_signup_url:
   type: string
   default: "/signup"
-  description: Add custom url to Guest Gate Sign Up button / link. By default it is redirect to home page and open signup modal.
+  description: Add custom url to Guest Gate Sign Up button / link. By default (/signup) this is redirect to home page and open signup modal.
 gate_footer_position:
   default: center
   type: enum
