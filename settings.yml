@@ -26,6 +26,18 @@ redirect_to_home:
   type: bool
   default: false
   description: Redirect the visitor after click the Login or Signup button to the homepage and open Login or Signup modal.
+custom_url_enabled:
+  type: bool
+  default: false
+  description: Enable custom url for Guest Gate Login and Sing Up button / link.
+custom_login_url:
+  type: string
+  default: "/login"
+  description: Add custom url to Guest Gate Login button / link. By default it is redirect to home page and open login modal.
+custom_signup_url:
+  type: string
+  default: "/signup"
+  description: Add custom url to Guest Gate Sign Up button / link. By default it is redirect to home page and open signup modal.
 gate_footer_position:
   default: center
   type: enum
