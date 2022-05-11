@@ -12,7 +12,7 @@
         <p>{{replace-emoji (i18n 'signup_cta.value_prop')}}</p>
       </div>
     {{/if}}
-    {{login-buttons externalLogin=(action "externalLogin")}}  
+    {{login-buttons externalLogin=(action "externalLogin")}}
   {{/d-modal-body}}
   {{else}}
   {{#d-modal-body title=(theme-prefix 'guest_gate.title')}}
@@ -21,14 +21,14 @@
         <img src="{{theme-setting 'custom_gate_image'}}"/>
         <h2>{{theme-i18n "custom_gate.big_text"}}</h2>
         <p>{{theme-i18n "custom_gate.little_text"}}</p>
-      </div>     
+      </div>
       {{else}}
       <div>
         <p>{{replace-emoji (i18n 'signup_cta.intro')}}</p>
         <p>{{replace-emoji (i18n 'signup_cta.value_prop')}}</p>
       </div>
     {{/if}}
-    {{login-buttons externalLogin=(action "externalLogin")}}  
+    {{login-buttons externalLogin=(action "externalLogin")}}
   {{/d-modal-body}}
 {{/if}}
 
@@ -38,17 +38,17 @@
     {{d-button class=(theme-setting 'signup_button_style') label=(theme-prefix 'guest_gate.sign_up') action="showCreateAccount"}}
     {{else}}
     {{#if (theme-setting 'use_gate_buttons') }}
-      {{#if (theme-setting 'redirect_to_home') }}
-        {{d-button class=(theme-setting 'login_button_style') label=(theme-prefix 'guest_gate.log_in') href="/login"}}
-        {{d-button class=(theme-setting 'signup_button_style') label=(theme-prefix 'guest_gate.sign_up') href="/signup"}}
+      {{#if (theme-setting 'custom_url_enabled') }}
+        {{d-button class=(theme-setting 'login_button_style') label=(theme-prefix 'guest_gate.log_in') href=(theme-setting 'custom_login_url')}}
+        {{d-button class=(theme-setting 'signup_button_style') label=(theme-prefix 'guest_gate.sign_up') href=(theme-setting 'custom_signup_url')}}
         {{else}}
         {{d-button class=(theme-setting 'login_button_style') label=(theme-prefix 'guest_gate.log_in') action="showLogin"}}
         {{d-button class=(theme-setting 'signup_button_style') label=(theme-prefix 'guest_gate.sign_up') action="showCreateAccount"}}
       {{/if}}
       {{else}}
-      {{#if (theme-setting 'redirect_to_home') }}
-        <a href="/login">{{theme-i18n "guest_gate.log_in"}}</a> |
-        <a href="/signup">{{theme-i18n "guest_gate.sign_up"}}</a>
+      {{#if (theme-setting 'custom_url_enabled') }}
+        <a href="{{theme-setting 'custom_login_url'}}">{{theme-i18n "guest_gate.log_in"}}</a> |
+        <a href="{{theme-setting 'custom_signup_url'}}">{{theme-i18n "guest_gate.sign_up"}}</a>
         {{else}}
         <a href {{action "showLogin"}}>{{theme-i18n "guest_gate.log_in"}}</a> |
         <a href {{action "showCreateAccount"}}>{{theme-i18n "guest_gate.sign_up"}}</a>
