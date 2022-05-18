@@ -5,7 +5,7 @@ max_guest_topic_views:
 dismissable_false:
   type: bool
   default: false
-  description: Removes the close button and lock the modal so visitors can't close it.
+  description: Removes the close button, which prevents visitors from closing it.
 use_gate_buttons:
   type: bool
   default: false
@@ -25,15 +25,15 @@ signup_button_style:
 custom_url_enabled:
   type: bool
   default: false
-  description: Enable custom url for Guest Gate Login and Sing Up button / link. By default this is redirect the visitor after click the Guest Gate Login or Signup button to the homepage and open Login or Signup modal
+  description: Enable the custom login url and custom signup url options. The normal behaviour (if you leave this option unchecked) is for the Login or Sign Up modal to appear on the current topic page.
 custom_login_url:
   type: string
   default: "/login"
-  description: Add custom url to Guest Gate Login button / link. By default (/login) this is redirect to home page and open login modal.
+  description: For example, /login is the home page with the “Login” modal displayed.
 custom_signup_url:
   type: string
   default: "/signup"
-  description: Add custom url to Guest Gate Sign Up button / link. By default (/signup) this is redirect to home page and open signup modal.
+  description: For example, /signup is the home page with the “Sign Up” modal displayed.
 gate_footer_position:
   default: center
   type: enum
@@ -48,21 +48,28 @@ gate_show_only_once:
 custom_gate_enabled:
   type: bool
   default: false
+  description: Enable it if you want to customize the modal.
 custom_gate_image:
   type: upload
   default: ""
+  description: Upload an image to display at the top of the modal.
 custom_gate_image_width:
   type: string
   default: "150px"
+  description: The uploaded image width. You can use px, % etc, e.g. 100% will add a full modal width (minus padding) image.
 custom_gate_big_text_color:
   type: string
   default: "var(--primary)"
+  description: The “big text” appears below the image. You can set the color of the text.
 custom_gate_little_text_color:
   type: string
   default: "var(--primary)"
+  description: The “little text” appears below the big text. You can set the color of the text.
 custom_gate_background_color:
   type: string
   default: "var(--secondary)"
+  description: Change the modal background color.
 custom_gate_link_color:
   type: string
   default: "var(--primary-medium)"
+  description: Change the footer link color. This applies if the use gate buttons setting is disabled and you have set up a custom gate.
