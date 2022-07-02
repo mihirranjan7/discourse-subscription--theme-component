@@ -34,8 +34,11 @@
 
 <div class="modal-footer">
   {{#if ssoEnabled}}
-    {{d-button class=(theme-setting 'login_button_style') label=(theme-prefix 'guest_gate.log_in') action="showLogin"}} {{theme-i18n "guest_gate.or"}}
-    {{d-button class=(theme-setting 'signup_button_style') label=(theme-prefix 'guest_gate.sign_up') action="showCreateAccount"}}
+    {{#if (theme-setting 'use_gate_buttons') }}
+      {{d-button class=(theme-setting 'login_button_style') label=(theme-prefix 'guest_gate.sso_log_in') action="showLogin"}}
+      {{else}}
+      <a href {{action "showLogin"}}>{{theme-i18n "guest_gate.sso_log_in"}}</a>
+    {{/if}}
     {{else}}
     {{#if (theme-setting 'use_gate_buttons') }}
       {{#if (theme-setting 'custom_url_enabled') }}
@@ -47,10 +50,12 @@
       {{/if}}
       {{else}}
       {{#if (theme-setting 'custom_url_enabled') }}
-        <a href="{{theme-setting 'custom_login_url'}}">{{theme-i18n "guest_gate.log_in"}}</a> |
+        <a href="{{theme-setting 'custom_login_url'}}">{{theme-i18n "guest_gate.log_in"}}</a>
+        {{theme-i18n "guest_gate.or"}}
         <a href="{{theme-setting 'custom_signup_url'}}">{{theme-i18n "guest_gate.sign_up"}}</a>
         {{else}}
-        <a href {{action "showLogin"}}>{{theme-i18n "guest_gate.log_in"}}</a> |
+        <a href {{action "showLogin"}}>{{theme-i18n "guest_gate.log_in"}}</a>
+        {{theme-i18n "guest_gate.or"}}
         <a href {{action "showCreateAccount"}}>{{theme-i18n "guest_gate.sign_up"}}</a>
       {{/if}}
     {{/if}}
