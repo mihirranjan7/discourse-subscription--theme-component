@@ -4,7 +4,7 @@ import { setting } from 'discourse/lib/computed';
 export default Ember.Controller.extend(ModalFunctionality, {
   login: Ember.inject.controller(),
 
-  ssoEnabled: setting('enable_sso'),
+  ssoEnabled: setting('enable_discourse_connect'),
 
   actions: {
     externalLogin(provider) {
