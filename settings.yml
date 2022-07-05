@@ -50,7 +50,7 @@ custom_signup_url:
 enable_discourse_connect_signup:
   type: bool
   default: false
-  description: "Add a Sign Up button to Discourse Connect. With this you can add a different external url for registration." 
+  description: "Add a Sign Up button to Discourse Connect. With this you can add a different external url for registration etc." 
 discourse_connect_signup_url:
   type: string
   default: ""
