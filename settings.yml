@@ -46,7 +46,15 @@ custom_login_url:
 custom_signup_url:
   type: string
   default: "/signup"
-  description: "For example, /signup is the home page with the “Sign Up” modal displayed."  
+  description: "For example, /signup is the home page with the “Sign Up” modal displayed."
+enable_discourse_connect_signup:
+  type: bool
+  default: false
+  description: "Add a Sign Up button to Discourse Connect. With this you can add a different external url for registration etc." 
+discourse_connect_signup_url:
+  type: string
+  default: ""
+  description: "Paste a URL for Discourse Connect Sign Up button."
 gate_footer_position:
   default: center
   type: enum
