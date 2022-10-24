@@ -70,13 +70,6 @@ custom_gate_enabled:
   type: bool
   default: false
   description: "Enable it if you want to customize the modal."
-custom_gate_content_position:
-  default: center
-  type: enum
-  choices:
-    - left
-    - right
-  description: "Custom gate content position."
 custom_gate_image:
   type: upload
   default: ""
@@ -85,6 +78,27 @@ custom_gate_image_width:
   type: string
   default: "150px"
   description: "The uploaded image width. You can use px, % etc, e.g. 100% will add a full modal width (minus padding) image."
+custom_gate_image_position:
+  default: center
+  type: enum
+  choices:
+    - left
+    - right
+  description: "Custom gate image position."
+custom_gate_big_text_position:
+  default: center
+  type: enum
+  choices:
+    - left
+    - right
+  description: "Custom gate big text (h2) position."
+custom_gate_little_text_position:
+  default: center
+  type: enum
+  choices:
+    - left
+    - right
+  description: "Custom gate little text (p) position."
 custom_gate_big_text_color:
   type: string
   default: "var(--primary)"
