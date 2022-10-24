@@ -70,6 +70,13 @@ custom_gate_enabled:
   type: bool
   default: false
   description: "Enable it if you want to customize the modal."
+custom_gate_content_position:
+  default: center
+  type: enum
+  choices:
+    - left
+    - right
+  description: "Custom gate content position."
 custom_gate_image:
   type: upload
   default: ""
