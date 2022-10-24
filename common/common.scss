@@ -11,7 +11,7 @@
       }
     }
     .custom-gate-content {
-      text-align: #{$custom_gate_content_position};
+      text-align: #{$custom_gate_image_position};
       img {
         width: #{$custom_gate_image_width};
         height: auto;
@@ -19,9 +19,11 @@
       }
       h2 {
         color: #{$custom_gate_big_text_color};
+        text-align: #{$custom_gate_big_text_position};
       }
       p {
         color: #{$custom_gate_little_text_color};
+        text-align: #{$custom_gate_little_text_position};
       }
     }
   }
