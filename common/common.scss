@@ -11,7 +11,7 @@
       }
     }
     .custom-gate-content {
-      text-align: center;
+      text-align: #{$custom_gate_content_position};
       img {
         width: #{$custom_gate_image_width};
         height: auto;
