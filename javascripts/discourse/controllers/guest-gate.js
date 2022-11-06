@@ -1,5 +1,7 @@
 import ModalFunctionality from 'discourse/mixins/modal-functionality';
 import { setting } from 'discourse/lib/computed';
+import { action } from "@ember/object";
+import showModal from "discourse/lib/show-modal";
 
 export default Ember.Controller.extend(ModalFunctionality, {
   login: Ember.inject.controller(),
