@@ -10,6 +10,19 @@ export default Ember.Controller.extend(ModalFunctionality, {
     externalLogin(provider) {
       this.get('login').send('externalLogin', provider);
     }
-  }
-
+  },
+  
+  @action
+  showLoginGate(event) {
+    event?.preventDefault();
+    showModal("login");
+  },
+    
+  @action
+  showCreateAccountGate(event) {
+    event?.preventDefault();
+    showModal("createAccount", {
+      modalClass: "create-account",
+    });
+  },
 });

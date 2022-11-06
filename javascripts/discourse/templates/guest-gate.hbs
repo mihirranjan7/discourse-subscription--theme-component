@@ -40,7 +40,7 @@
         <DButton @class={{theme-setting "signup_button_style"}} @icon={{theme-setting "signup_icon"}} @label={{theme-prefix "guest_gate.sso_sign_up"}} @href={{theme-setting "discourse_connect_signup_url"}} />
       {{/if}}
       {{else}}
-      <a href {{action "showLogin"}}>{{theme-i18n "guest_gate.sso_log_in"}}</a>
+      <a href {{on "click" this.showLoginGate}}>{{theme-i18n "guest_gate.sso_log_in"}}</a>
       {{#if (theme-setting 'enable_discourse_connect_signup') }}
         {{theme-i18n "guest_gate.or"}}
         <a href="{{theme-setting 'discourse_connect_signup_url'}}">{{theme-i18n "guest_gate.sso_sign_up"}}</a>
@@ -61,9 +61,9 @@
         {{theme-i18n "guest_gate.or"}}
         <a href="{{theme-setting 'custom_signup_url'}}">{{theme-i18n "guest_gate.sign_up"}}</a>
         {{else}}
-        <a href {{action "showLogin"}}>{{theme-i18n "guest_gate.log_in"}}</a>
+        <a href {{on "click" this.showLoginGate}}>{{theme-i18n "guest_gate.log_in"}}</a>
         {{theme-i18n "guest_gate.or"}}
-        <a href {{action "showCreateAccount"}}>{{theme-i18n "guest_gate.sign_up"}}</a>
+        <a href {{on "click" this.showCreateAccountGate}}>{{theme-i18n "guest_gate.sign_up"}}</a>
       {{/if}}
     {{/if}}
   {{/if}}
