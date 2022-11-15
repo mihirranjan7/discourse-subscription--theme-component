@@ -2,6 +2,7 @@ import ModalFunctionality from 'discourse/mixins/modal-functionality';
 import { setting } from 'discourse/lib/computed';
 import { action } from "@ember/object";
 import showModal from "discourse/lib/show-modal";
+import getURL from "discourse-common/lib/get-url";
 
 export default Ember.Controller.extend(ModalFunctionality, {
   login: Ember.inject.controller(),
@@ -18,6 +19,13 @@ export default Ember.Controller.extend(ModalFunctionality, {
   showLoginGate(event) {
     event?.preventDefault();
     showModal("login");
+  },
+    
+  @action
+  ssoLoginGate(event) {
+    event?.preventDefault();
+    const returnPath = encodeURIComponent(window.location.pathname);
+    window.location = getURL("/session/sso?return_path=" + returnPath);
   },
     
   @action
