@@ -40,7 +40,7 @@
         <DButton @class={{theme-setting "signup_button_style"}} @icon={{theme-setting "signup_icon"}} @label={{theme-prefix "guest_gate.sso_sign_up"}} @href={{theme-setting "discourse_connect_signup_url"}} />
       {{/if}}
       {{else}}
-      <span onclick={{route-action "showLogin"}} class="sso-login">{{theme-i18n "guest_gate.sso_log_in"}}</span>
+      <a href {{on "click" this.ssoLoginGate}}>{{theme-i18n "guest_gate.sso_log_in"}}</a>
       {{#if (theme-setting 'enable_discourse_connect_signup') }}
         {{theme-i18n "guest_gate.or"}}
         <a href="{{theme-setting 'discourse_connect_signup_url'}}">{{theme-i18n "guest_gate.sso_sign_up"}}</a>
