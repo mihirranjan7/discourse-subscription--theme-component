@@ -6,8 +6,7 @@
     }
     .modal-footer {
       color: #{$custom_gate_link_color};
-      a,
-      span.sso-login {
+      a {
        color: #{$custom_gate_link_color};
       }
     }
@@ -40,12 +39,10 @@
   .modal-footer {
     color: var(--primary-medium);
     justify-content: #{$gate_footer_position};
-    a,
-    span.sso-login {
+    a {
       color: var(--primary-medium);
       outline: none;
       margin: 0 0.25em;
-      cursor: pointer;
     }
   }
   #login-buttons {
