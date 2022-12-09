@@ -67,3 +67,14 @@
     }
   }
 }
+
+@if $gate-show-when-thumbnail-clicked == "true" {
+  .anon {
+    .mfp-wrap {
+      button,
+      .mfp-preloader {
+        display: none;
+      }
+    }
+  }
+}
