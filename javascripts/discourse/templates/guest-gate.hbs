@@ -4,7 +4,7 @@
       <div class="custom-gate-content">
         <img src="{{theme-setting 'custom_gate_image'}}"/>
         <h2>{{theme-i18n "custom_gate.big_text"}}</h2>
-        <p>{{theme-i18n "custom_gate.little_text"}}</p>
+        <p>{{html-safe (theme-i18n "custom_gate.little_text") }}</p>
       </div>
       {{else}}
       <div>
@@ -20,7 +20,7 @@
       <div class="custom-gate-content">
         <img src="{{theme-setting 'custom_gate_image'}}"/>
         <h2>{{theme-i18n "custom_gate.big_text"}}</h2>
-        <p>{{theme-i18n "custom_gate.little_text"}}</p>
+        <p>{{html-safe (theme-i18n "custom_gate.little_text") }}</p>
       </div>
       {{else}}
       <div>
@@ -50,10 +50,14 @@
         />
       {{/if}}
       {{else}}
-      <a href {{on "click" this.ssoLoginGate}}>{{theme-i18n "guest_gate.sso_log_in"}}</a>
+      <a href {{on "click" this.ssoLoginGate}}>
+        {{theme-i18n "guest_gate.sso_log_in"}}
+      </a>
       {{#if (theme-setting 'enable_discourse_connect_signup') }}
         {{theme-i18n "guest_gate.or"}}
-        <a href="{{theme-setting 'discourse_connect_signup_url'}}">{{theme-i18n "guest_gate.sso_sign_up"}}</a>
+        <a href="{{theme-setting 'discourse_connect_signup_url'}}">
+          {{theme-i18n "guest_gate.sso_sign_up"}}
+        </a>
       {{/if}}
     {{/if}}
     {{else}}
@@ -87,13 +91,21 @@
       {{/if}}
       {{else}}
       {{#if (theme-setting 'custom_url_enabled') }}
-        <a href="{{theme-setting 'custom_login_url'}}">{{theme-i18n "guest_gate.log_in"}}</a>
+        <a href="{{theme-setting 'custom_login_url'}}">
+          {{theme-i18n "guest_gate.log_in"}}
+        </a>
         {{theme-i18n "guest_gate.or"}}
-        <a href="{{theme-setting 'custom_signup_url'}}">{{theme-i18n "guest_gate.sign_up"}}</a>
+        <a href="{{theme-setting 'custom_signup_url'}}">
+          {{theme-i18n "guest_gate.sign_up"}}
+        </a>
         {{else}}
-        <a href {{on "click" this.showLoginGate}}>{{theme-i18n "guest_gate.log_in"}}</a>
+        <a href {{on "click" this.showLoginGate}}>
+          {{theme-i18n "guest_gate.log_in"}}
+        </a>
         {{theme-i18n "guest_gate.or"}}
-        <a href {{on "click" this.showCreateAccountGate}}>{{theme-i18n "guest_gate.sign_up"}}</a>
+        <a href {{on "click" this.showCreateAccountGate}}>
+          {{theme-i18n "guest_gate.sign_up"}}
+        </a>
       {{/if}}
     {{/if}}
   {{/if}}
