@@ -70,11 +70,16 @@
 
 @if $gate-show-when-thumbnail-clicked == "true" {
   .anon {
+    // Old lightbox
     .mfp-wrap {
       button,
       .mfp-preloader {
         display: none;
       }
+    }
+    // New lightbox
+    #discourse-lightbox {
+      display: none;
     }
   }
 }
