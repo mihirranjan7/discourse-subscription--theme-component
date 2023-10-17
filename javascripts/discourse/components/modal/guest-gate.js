@@ -3,7 +3,7 @@ import { action } from "@ember/object";
 import getURL from "discourse-common/lib/get-url";
 import LoginModal from "discourse/components/modal/login";
 import showModal from "discourse/lib/show-modal";
-import { getOwner } from "discourse-common/lib/get-owner";
+import { getOwner } from "@ember/application";
 import { inject as service } from "@ember/service";
 
 export default class extends Component {
