@@ -23,7 +23,13 @@
       </div>
     {{/if}}
     
-    <LoginButtons @externalLogin={{action "externalLogin"}} />
+    {{#if this.showLoginButtons}}
+      <LoginButtons
+        @externalLogin={{this.externalLoginAction}}
+        @passkeyLogin={{this.passkeyLogin}}
+        @context="login"
+      />
+    {{/if}}
   </:body>
   
   <:footer>
