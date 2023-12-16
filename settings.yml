@@ -115,6 +115,10 @@ custom_gate_background_color:
   type: string
   default: "var(--secondary)"
   description: "Change the modal background color."
+custom_gate_footer_text_color:
+  type: string
+  default: "var(--primary-medium)"
+  description: "Change the footer text color. This applies if the use gate buttons setting is disabled and you have set up a custom gate."
 custom_gate_link_color:
   type: string
   default: "var(--primary-medium)"
