@@ -1,13 +1,13 @@
 .d-modal.gate {
   // if custom gate enabled
   &.custom-gate {
-    .modal-inner-container {
+    .d-modal__container {
       background-color: #{$custom_gate_background_color};
     }
-    .modal-footer {
-      color: #{$custom_gate_link_color};
-      a {
-       color: #{$custom_gate_link_color};
+    .d-modal__footer {
+      color: #{$custom_gate_footer_text_color};
+      .btn-transparent {
+        color: #{$custom_gate_link_color};
       }
     }
     .custom-gate-content {
@@ -27,21 +27,22 @@
       }
     }
   }
-  .modal-inner-container {
+  .d-modal__container {
     background-color: var(--secondary);
   }
-  .modal-header {
+  .d-modal__header {
     border-bottom: none;
   }
-  .modal-body {
+  .d-modal__body {
     padding: 0 1em;
   }
-  .modal-footer {
+  .d-modal__footer {
     color: var(--primary-medium);
     justify-content: #{$gate_footer_position};
-    a {
+    .btn-transparent {
       color: var(--primary-medium);
       outline: none;
+      padding: 0;
       margin: 0 0.25em;
     }
   }

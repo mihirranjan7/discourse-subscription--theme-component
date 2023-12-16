@@ -11,7 +11,7 @@
     {{#if (theme-setting 'custom_gate_enabled')}}
       <div class="custom-gate-content">
         <img src="{{theme-setting 'custom_gate_image'}}"/>
-        <h2>{{theme-i18n "custom_gate.big_text"}}</h2>
+        <h2>{{html-safe (theme-i18n "custom_gate.big_text")}}</h2>
         <p>{{html-safe (theme-i18n "custom_gate.little_text")}}</p>
       </div>
     
@@ -22,8 +22,6 @@
         <p>{{replace-emoji (i18n 'signup_cta.value_prop')}}</p>
       </div>
     {{/if}}
-    
-    <LoginButtons @externalLogin={{action "externalLogin"}} />
   </:body>
   
   <:footer>
@@ -45,15 +43,20 @@
         {{/if}}
         
       {{else}}
-          
-        <a href {{on "click" this.ssoLoginGate}}>
-          {{theme-i18n "guest_gate.sso_log_in"}}
-        </a>
+        
+        <DButton
+          @class="btn-transparent"
+          @label={{theme-prefix "guest_gate.sso_log_in"}}
+          @action={{route-action "showLogin"}}
+        />
+
         {{#if (theme-setting 'enable_discourse_connect_signup')}}
           {{theme-i18n "guest_gate.or"}}
-          <a href="{{theme-setting 'discourse_connect_signup_url'}}">
-            {{theme-i18n "guest_gate.sso_sign_up"}}
-          </a>
+          <DButton
+            @class="btn-transparent"
+            @label={{theme-prefix "guest_gate.sso_sign_up"}}
+            @href={{theme-setting "discourse_connect_signup_url"}}
+          />
         {{/if}}
       {{/if}}
               
@@ -93,27 +96,35 @@
       {{else}}
           
         {{#if (theme-setting 'custom_url_enabled')}}
-          <a href="{{theme-setting 'custom_login_url'}}">
-            {{theme-i18n "guest_gate.log_in"}}
-          </a>
+          <DButton
+            @class="btn-transparent"
+            @label={{theme-prefix "guest_gate.log_in"}}
+            @href={{theme-setting "custom_login_url"}}
+          />
 
           {{theme-i18n "guest_gate.or"}}
           
-          <a href="{{theme-setting 'custom_signup_url'}}">
-            {{theme-i18n "guest_gate.sign_up"}}
-          </a>
+          <DButton
+            @class="btn-transparent"
+            @label={{theme-prefix "guest_gate.sign_up"}}
+            @href={{theme-setting "custom_signup_url"}}
+          />
               
         {{else}}
             
-          <a href {{on "click" this.showLoginGate}}>
-            {{theme-i18n "guest_gate.log_in"}}
-          </a>
+          <DButton
+            @class="btn-transparent"
+            @label={{theme-prefix "guest_gate.log_in"}}
+            @action={{route-action "showLogin"}}
+          />
 
           {{theme-i18n "guest_gate.or"}}
 
-          <a href {{on "click" this.showCreateAccountGate}}>
-            {{theme-i18n "guest_gate.sign_up"}}
-          </a>
+          <DButton
+            @class="btn-transparent"
+            @label={{theme-prefix "guest_gate.sign_up"}}
+            @action={{route-action "showCreateAccount"}}
+          />
         {{/if}}
       {{/if}}
     {{/if}}
