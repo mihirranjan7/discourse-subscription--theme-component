@@ -7,7 +7,7 @@ import routeAction from "discourse/helpers/route-action";
 import replaceEmoji from "discourse/helpers/replace-emoji";
 import DButton from "discourse/components/d-button";
 import DModal from "discourse/components/d-modal";
-import { and, eq, not, or } from "truth-helpers";
+import LoginButtons from "discourse/components/login-buttons";
 import I18n from "discourse-i18n";
 
 export default class GuestGateModal extends Component {  
@@ -82,7 +82,10 @@ export default class GuestGateModal extends Component {
           </div>
         {{/if}}
 
-        {{this.externalLogin}}
+        <LoginButtons
+          @externalLogin={{this.externalLogin}}
+          @context="create-account"
+        />
       </:body>
       
       <:footer>
@@ -91,14 +94,14 @@ export default class GuestGateModal extends Component {
             <DButton
               @class={{settings.login_button_style}}
               @icon={{settings.login_icon}}
-              @label={{this.guestGateSsoSignup}}
+              @translatedLabel={{this.guestGateSsoSignup}}
               @action={{routeAction "showLogin"}}
             />
             {{#if settings.enable_discourse_connect_signup}}
               <DButton
                 @class={{settings.signup_button_style}}
                 @icon={{settings.signup_icon}}
-                @label={{this.guestGateSsoSignup}}
+                @translatedLabel={{this.guestGateSsoSignup}}
                 @href={{settings.discourse_connect_signup_url}}
               />
             {{/if}}
@@ -107,7 +110,7 @@ export default class GuestGateModal extends Component {
             
             <DButton
               @class="btn-transparent"
-              @label={{this.guestGateSsoSignup}}
+              @translatedLabel={{this.guestGateSsoSignup}}
               @action={{routeAction "showLogin"}}
             />
     
@@ -115,7 +118,7 @@ export default class GuestGateModal extends Component {
               {{this.guestGateOr}}
               <DButton
                 @class="btn-transparent"
-                @label={{this.guestGateSsoSignup}}
+                @translatedLabel={{this.guestGateSsoSignup}}
                 @href={{settings.discourse_connect_signup_url}}
               />
             {{/if}}
@@ -128,13 +131,13 @@ export default class GuestGateModal extends Component {
               <DButton
                 @class={{settings.login_button_style}}
                 @icon={{settings.login_icon}}
-                @label={{this.guestGateLogin}}
+                @translatedLabel={{this.guestGateLogin}}
                 @href={{settings.custom_login_url}}
               />
               <DButton
                 @class={{settings.signup_button_style}}
                 @icon={{settings.signup_icon}}
-                @label={{this.guestGateSignup}}
+                @translatedLabel={{this.guestGateSignup}}
                 @href={{settings.custom_signup_url}}
               />
               
@@ -143,13 +146,13 @@ export default class GuestGateModal extends Component {
               <DButton
                 @class={{settings.login_button_style}}
                 @icon={{settings.login_icon}}
-                @label={{this.guestGateLogin}}
+                @translatedLabel={{this.guestGateLogin}}
                 @action={{routeAction "showLogin"}}
               />
               <DButton
                 @class={{settings.signup_button_style}}
                 @icon={{settings.signup_icon}}
-                @label={{this.guestGateSignup}}
+                @translatedLabel={{this.guestGateSignup}}
                 @action={{routeAction "showCreateAccount"}}
               />
             {{/if}}
@@ -159,7 +162,7 @@ export default class GuestGateModal extends Component {
             {{#if settings.custom_url_enabled}}
               <DButton
                 @class="btn-transparent"
-                @label={{this.guestGateLogin}}
+                @translatedLabel={{this.guestGateLogin}}
                 @href={{settings.custom_login_url}}
               />
     
@@ -167,7 +170,7 @@ export default class GuestGateModal extends Component {
               
               <DButton
                 @class="btn-transparent"
-                @label={{this.guestGateSignup}}
+                @translatedLabel={{this.guestGateSignup}}
                 @href={{settings.custom_signup_url}}
               />
                   
@@ -175,7 +178,7 @@ export default class GuestGateModal extends Component {
                 
               <DButton
                 @class="btn-transparent"
-                @label={{this.guestGateLogin}}
+                @translatedLabel={{this.guestGateLogin}}
                 @action={{routeAction "showLogin"}}
               />
     
@@ -183,7 +186,7 @@ export default class GuestGateModal extends Component {
     
               <DButton
                 @class="btn-transparent"
-                @label={{this.guestGateSignup}}
+                @translatedLabel={{this.guestGateSignup}}
                 @action={{routeAction "showCreateAccount"}}
               />
             {{/if}}
