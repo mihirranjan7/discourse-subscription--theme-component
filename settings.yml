@@ -1,3 +1,13 @@
+url_for_show:
+  type: list
+  list_type: simple
+  default: "/t/*"
+  description: "Enter paths that should display the Guest Gate modal.<br>Add <code>*</code> to the end of the path as a wildcard.<br>For example: <br> All page: <code>*</code> <br> Homepage: <code>/</code> <br> Latest: <code>/latest</code> <br> Topics: <code>/t/*</code> <br> Categories: <code>/c/*</code>"
+url_for_hide:
+  type: list
+  list_type: simple
+  default: ""
+  description: "Enter paths that should hide the Guest Gate modal.<br>Add <code>*</code> to the end of the path as a wildcard.<br>For example: <br> Terms of Service page: <code>/tos</code> <br> Specific topic: <code>/t/tos/99999*</code>"
 max_guest_topic_views:
   type: string
   default: "1"
