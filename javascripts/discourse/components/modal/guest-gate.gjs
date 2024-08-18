@@ -2,6 +2,7 @@ import Component from "@glimmer/component";
 import { action } from "@ember/object";
 import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
+import concatClass from "discourse/helpers/concat-class";
 import routeAction from "discourse/helpers/route-action";
 import replaceEmoji from "discourse/helpers/replace-emoji";
 import DButton from "discourse/components/d-button";
@@ -58,7 +59,7 @@ export default class GuestGateModal extends Component {
     <DModal
       @closeModal={{@closeModal}}
       @title={{this.guestGateModalTitle}}
-      class={{concat-class
+      class={{concatClass
         "gate"
         (if settings.custom_gate_enabled "custom-gate")
       }}
