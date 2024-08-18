@@ -42,6 +42,10 @@ export default class GuestGateModal extends Component {
     return I18n.t(themePrefix("guest_gate.sign_up"));
   }
 
+  get guestGateSsoLogin() {
+    return I18n.t(themePrefix("guest_gate.sso_log_in"));
+  }
+
   get guestGateSsoSignup() {
     return I18n.t(themePrefix("guest_gate.sso_sign_up"));
   }
@@ -94,7 +98,7 @@ export default class GuestGateModal extends Component {
             <DButton
               @class={{settings.login_button_style}}
               @icon={{settings.login_icon}}
-              @translatedLabel={{this.guestGateSsoSignup}}
+              @translatedLabel={{this.guestGateSsoLogin}}
               @action={{routeAction "showLogin"}}
             />
             {{#if settings.enable_discourse_connect_signup}}
@@ -110,7 +114,7 @@ export default class GuestGateModal extends Component {
             
             <DButton
               @class="btn-transparent"
-              @translatedLabel={{this.guestGateSsoSignup}}
+              @translatedLabel={{this.guestGateSsoLogin}}
               @action={{routeAction "showLogin"}}
             />
     
