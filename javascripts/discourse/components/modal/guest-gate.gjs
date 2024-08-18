@@ -12,6 +12,7 @@ import I18n from "discourse-i18n";
 
 export default class GuestGateModal extends Component {  
   @service siteSettings;
+  @service login;
 
   get guestGateModalTitle() {
     return I18n.t(themePrefix("guest_gate.title"));
