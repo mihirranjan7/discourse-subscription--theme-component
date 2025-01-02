@@ -6,7 +6,7 @@ url_for_show:
 url_for_hide:
   type: list
   list_type: simple
-  default: "/login*|/u/*|/invites/*|/about|/faq|/faq#*|/guidelines|/guidelines#*|/tos|/tos#*|/privacy|/privacy#*"
+  default: "/login*|/u/*|/session*|/invites/*|/about|/faq|/faq#*|/guidelines|/guidelines#*|/tos|/tos#*|/privacy|/privacy#*"
   description: "Enter paths that should hide the Guest Gate modal.<br>Add <code>*</code> to the end of the path as a wildcard.<br>For example: <br> Terms of Service page: <code>/tos</code> <br> Specific topic: <code>/t/tos/99999*</code> <br> Added some urls to avoid unexpected behavior..."
 max_guest_topic_views:
   type: string
