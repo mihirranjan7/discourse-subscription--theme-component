@@ -46,13 +46,13 @@ login_icon:
   description: "Add icon to Log In button."
 signup_icon:
   type: string
-  default: "sign-in-alt"
+  default: "right-to-bracket"
   description: "Add icon to Sign Up button."
 svg_icons: 
   default: ""
   type: "list"
   list_type: "compact"
-  description: "List of FontAwesome 5 icons used in this theme component"
+  description: "List of FontAwesome 6 icons used in this theme component"
 custom_url_enabled:
   type: bool
   default: false
