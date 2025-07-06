@@ -1,17 +1,47 @@
+# settings.yml
 url_for_show:
   type: list
   list_type: simple
   default: "/t/*"
-  description: "Enter paths that should display the Guest Gate modal.<br>Add <code>*</code> to the end of the path as a wildcard.<br>For example: <br> All page: <code>*</code> <br> Homepage: <code>/</code> <br> Latest: <code>/latest</code> <br> Topics: <code>/t/*</code> <br> Categories: <code>/c/*</code>"
+  description: "Enter paths that should display the Subscription Gate modal.<br>Add <code>*</code> to the end of the path as a wildcard.<br>For example: <br> All page: <code>*</code> <br> Homepage: <code>/</code> <br> Latest: <code>/latest</code> <br> Topics: <code>/t/*</code> <br> Categories: <code>/c/*</code>"
 url_for_hide:
   type: list
   list_type: simple
-  default: "/login*|/u/*|/session*|/invites/*|/about|/faq|/faq#*|/guidelines|/guidelines#*|/tos|/tos#*|/privacy|/privacy#*"
-  description: "Enter paths that should hide the Guest Gate modal.<br>Add <code>*</code> to the end of the path as a wildcard.<br>For example: <br> Terms of Service page: <code>/tos</code> <br> Specific topic: <code>/t/tos/99999*</code> <br> Added some urls to avoid unexpected behavior..."
-max_guest_topic_views:
+  default: "/login*|/u/*|/session*|/invites/*|/about|/faq|/faq#*|/guidelines|/guidelines#*|/tos|/tos#*|/privacy|/privacy#*|/subscription*"
+  description: "Enter paths that should hide the Subscription Gate modal.<br>Add <code>*</code> to the end of the path as a wildcard.<br>For example: <br> Terms of Service page: <code>/tos</code> <br> Specific topic: <code>/t/tos/99999*</code> <br> **IMPORTANT**: <code>/subscription*</code> is automatically added to prevent showing the gate on the subscription page itself."
+
+# New settings for subscription gate behavior
+enable_subscription_gate:
+  type: bool
+  default: false
+  description: "Enable the subscription gate for logged-in users."
+
+subscription_gate_topic_views_enabled:
+  type: bool
+  default: true
+  description: "Show the gate after a certain number of topic views."
+max_subscription_topic_views:
   type: string
+  default: "20"
+  description: "Number of topics a logged-in user can view before the gate displays. This count resets randomly after the gate is shown."
+
+subscription_gate_random_daily_enabled:
+  type: bool
+  default: true
+  description: "Enable occasional random display of the gate (e.g., once every 1 or 2 days)."
+subscription_gate_random_frequency_days:
+  type: enum
   default: "1"
-  description: "Number of topic views until gate displays. After the gate first appears, it appears randomly between 1 and this number."
+  choices:
+    - "1"
+    - "2"
+  description: "Frequency for random gate display (1 day or 2 days)."
+
+subscription_gate_url:
+  type: string
+  default: "/subscription"
+  description: "The URL where users will be directed to subscribe. (e.g., /subscription)"
+
 dismissable_false:
   type: bool
   default: false
@@ -19,67 +49,37 @@ dismissable_false:
 gate_show_only_once:
   type: bool
   default: false
-  description: "Guest Gate modal show only once per session."
+  description: "Subscription Gate modal show only once per session."
 gate_show_when_thumbnail_clicked:
   type: bool
   default: false
-  description: "Guest Gate modal show only when visitor clicks lightbox image thumbnail. It prevents visitors to view the full resolution image without Log In or Sign Up."
+  description: "Subscription Gate modal show only when logged-in user clicks lightbox image thumbnail. It prevents visitors to view the full resolution image without subscribing."
+
 use_gate_buttons:
   type: bool
   default: false
   description: "Use buttons on modal footer instead of links."
-login_button_style:
+subscribe_button_style:
   type: enum
   default: btn-primary
   choices:
     - btn-default
-  description: "Guest Gate Login button style. btn-primary is a blue (tertiary) colored button by default. btn-default is a grey (primary-low) colored button by default."
-signup_button_style:
-  type: enum
-  default: btn-default
-  choices:
-    - btn-primary
-  description: "Guest Gate Signup button style. btn-primary is a blue (tertiary) colored button by default. btn-default is a grey (primary-low) colored button by default."
-login_icon:
+  description: "Subscription button style. btn-primary is a blue (tertiary) colored button by default. btn-default is a grey (primary-low) colored button by default."
+subscribe_icon:
   type: string
-  default: "user"
-  description: "Add icon to Log In button."
-signup_icon:
+  default: "gem"
+  description: "Add icon to Subscribe button."
+maybe_later_icon:
   type: string
-  default: "right-to-bracket"
-  description: "Add icon to Sign Up button."
-svg_icons: 
-  default: ""
+  default: "xmark"
+  description: "Add icon to 'Maybe Later' button/link."
+svg_icons:
+  default: "gem|xmark" # Updated default to include new icons
   type: "list"
   list_type: "compact"
   description: "List of FontAwesome 6 icons used in this theme component"
-custom_url_enabled:
-  type: bool
-  default: false
-  description: "Enable the custom login url and custom signup url options. The normal behaviour (if you leave this option unchecked) is for the Login or Sign Up modal to appear on the current topic page."
-custom_login_url:
-  type: string
-  default: "/login"
-  description: "For example, /login is the home page with the “Login” modal displayed."
-custom_signup_url:
-  type: string
-  default: "/signup"
-  description: "For example, /signup is the home page with the “Sign Up” modal displayed."
-enable_discourse_connect_signup:
-  type: bool
-  default: false
-  description: "Add a Sign Up button to Discourse Connect. With this you can add a different external url for registration etc." 
-discourse_connect_signup_url:
-  type: string
-  default: ""
-  description: "Paste a URL for Discourse Connect Sign Up button."
-gate_footer_position:
-  default: center
-  type: enum
-  choices:
-    - left
-    - right
-  description: "Footer buttons/links position."
+
+# Custom Gate Styling (adapted for subscription)
 custom_gate_enabled:
   type: bool
   default: false
@@ -133,3 +133,4 @@ custom_gate_link_color:
   type: string
   default: "var(--primary-medium)"
   description: "Change the footer link color. This applies if the use gate buttons setting is disabled and you have set up a custom gate."
+
