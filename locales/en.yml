@@ -1,12 +1,17 @@
 en:
-  guest_gate:
-    title: "Please Sign Up!"
-    sign_up_email: "Sign Up with Email"
-    sign_up: "Sign Up"
-    log_in: "I already have an account"
-    sso_log_in: "Log In"
-    sso_sign_up: "Sign Up"
-    or: "or"
-  custom_gate:
-    big_text: "Custom Big text"
-    little_text: "Custom Little text"
+  theme_translations: # It's good practice to wrap theme translations here
+    subscription_gate: # Renamed from guest_gate
+      title: "Unlock Full Access!" # Updated title
+      subscribe: "Subscribe Now" # Replaces sign_up
+      maybe_later: "Maybe Later" # New option for closing
+      log_in: "I'm already subscribed" # Replaces existing login if you want to keep
+      sso_subscribe: "Subscribe" # If you have SSO-like subscription, though removed from .gjs
+      sso_maybe_later: "Maybe Later" # If you have SSO-like subscription, though removed from .gjs
+      or: "or" # Can be used between buttons/links if desired
+    subscription_cta: # New section for the main call to action text
+      intro: "Enjoying the content so far?"
+      value_prop: "Subscribe to Clavikl for unlimited access, exclusive content, and an ad-free experience!"
+    custom_gate: # Retained and updated for subscription context
+      big_text: "Join Clavikl Premium!" # Updated for subscription
+      little_text: "Get access to everything we offer with a simple subscription." # Updated for subscription
+
