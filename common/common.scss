@@ -1,29 +1,40 @@
+// discourse-guest-gate-theme-component/common.scss (or wherever this snippet is)
+
 .d-modal.gate {
   // if custom gate enabled
   &.custom-gate {
     .d-modal__container {
-      background-color: #{$custom_gate_background_color};
+      // Use theme-setting for background color from settings.yml
+      background-color: var(--d-custom-gate-background-color, theme-setting("custom_gate_background_color"));
     }
     .d-modal__footer {
-      color: #{$custom_gate_footer_text_color};
+      // Use theme-setting for footer text color from settings.yml
+      color: var(--d-custom-gate-footer-text-color, theme-setting("custom_gate_footer_text_color"));
       .btn-transparent {
-        color: #{$custom_gate_link_color};
+        // Use theme-setting for link color from settings.yml
+        color: var(--d-custom-gate-link-color, theme-setting("custom_gate_link_color"));
       }
     }
     .custom-gate-content {
-      text-align: #{$custom_gate_image_position};
+      // Use theme-setting for image position from settings.yml
+      text-align: var(--d-custom-gate-image-position, theme-setting("custom_gate_image_position"));
       img {
-        width: #{$custom_gate_image_width};
+        // Use theme-setting for image width from settings.yml
+        width: var(--d-custom-gate-image-width, theme-setting("custom_gate_image_width"));
         height: auto;
         margin-bottom: 0.75em;
       }
       h2 {
-        color: #{$custom_gate_big_text_color};
-        text-align: #{$custom_gate_big_text_position};
+        // Use theme-setting for big text color from settings.yml
+        color: var(--d-custom-gate-big-text-color, theme-setting("custom_gate_big_text_color"));
+        // Use theme-setting for big text position from settings.yml
+        text-align: var(--d-custom-gate-big-text-position, theme-setting("custom_gate_big_text_position"));
       }
       p {
-        color: #{$custom_gate_little_text_color};
-        text-align: #{$custom_gate_little_text_position};
+        // Use theme-setting for little text color from settings.yml
+        color: var(--d-custom-gate-little-text-color, theme-setting("custom_gate_little_text_color"));
+        // Use theme-setting for little text position from settings.gjs
+        text-align: var(--d-custom-gate-little-text-position, theme-setting("custom_gate_little_text_position"));
       }
     }
   }
@@ -38,7 +49,8 @@
   }
   .d-modal__footer {
     color: var(--primary-medium);
-    justify-content: #{$gate_footer_position};
+    // FIX: Correctly access gate_footer_position from settings.yml
+    justify-content: var(--d-gate-footer-position, theme-setting("gate_footer_position"));
     .btn-transparent {
       color: var(--primary-medium);
       outline: none;
@@ -46,29 +58,35 @@
       margin: 0 0.25em;
     }
   }
-  #login-buttons {
-    margin-bottom: 0.75em;
-    text-align: center;
-    .btn-social {
-      margin: 0.25em;
-      .mobile-view & {
-        width: 100%;
-      }
-      &:focus,
-      &:hover {
-        background: var(--secondary);
-        color: var(--primary);
-        .d-icon {
-          color: var(--primary);
-        }
-      }
-    }
-    .mobile-view & {
-      width: 100%;
-    }
-  }
+  // Commented out as LoginButtons component was removed from .gjs
+  // If you still have other login buttons that need this styling, uncomment and adapt.
+  // #login-buttons {
+  //   margin-bottom: 0.75em;
+  //   text-align: center;
+  //   .btn-social {
+  //     margin: 0.25em;
+  //     .mobile-view & {
+  //       width: 100%;
+  //     }
+  //     &:focus,
+  //     &:hover {
+  //       background: var(--secondary);
+  //       color: var(--primary);
+  //       .d-icon {
+  //         color: var(--primary);
+  //       }
+  //     }
+  //   }
+  //   .mobile-view & {
+  //     width: 100%;
+  //   }
+  // }
 }
 
+// Assuming $gate-show-when-thumbnail-clicked is a SASS variable set elsewhere,
+// or if it's a theme setting, it needs to be accessed differently (e.g., in JS for conditional class).
+// If this is a direct boolean setting from settings.yml, this @if won't work directly in SCSS.
+// You'd typically add a class to body/html via JS if this setting is true.
 @if $gate-show-when-thumbnail-clicked == "true" {
   .anon {
     // Old lightbox
