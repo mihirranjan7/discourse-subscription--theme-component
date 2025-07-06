@@ -4,6 +4,15 @@ url_for_show:
   list_type: simple
   default: "/t/*"
   description: "Enter paths that should display the Subscription Gate modal.<br>Add <code>*</code> to the end of the path as a wildcard.<br>For example: <br> All page: <code>*</code> <br> Homepage: <code>/</code> <br> Latest: <code>/latest</code> <br> Topics: <code>/t/*</code> <br> Categories: <code>/c/*</code>"
+gate_footer_position:
+  default: center
+  type: enum
+  choices:
+    - left
+    - right
+    - center
+  description: "Footer buttons/links position."
+
 url_for_hide:
   type: list
   list_type: simple
